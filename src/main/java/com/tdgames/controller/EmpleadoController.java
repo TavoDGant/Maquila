@@ -1,6 +1,7 @@
 package com.tdgames.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -39,5 +40,10 @@ public class EmpleadoController {
 	@DeleteMapping("empleado/eliminar/{id}")
 	public ResponseEntity<String> deleteEmpleado(@PathVariable Integer id){
 		return service.eliminarEmpleado(id);
+	}
+	
+	@GetMapping("empleado/{id}")
+	public Optional<Empleado> findPorID(@PathVariable Integer id){
+		return service.buscarEmpleadoID(id);
 	}
 }

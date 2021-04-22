@@ -1,6 +1,7 @@
 package com.tdgames.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,7 +15,7 @@ import com.tdgames.entity.Empleado;
 public class EmpleadoService {
 
 	@Autowired
-	EmpleadoDAO dao;
+	private EmpleadoDAO dao;
 	
 	public List<Empleado> listaEmpleados(){
 		return dao.findAll();
@@ -45,5 +46,9 @@ public class EmpleadoService {
 		} catch (Exception e) {
 			return new ResponseEntity<>("Error al eliminar empleado.\n" + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
+	}
+	
+	public Optional<Empleado> buscarEmpleadoID(Integer id){
+		return dao.findById(id);
 	}
 }

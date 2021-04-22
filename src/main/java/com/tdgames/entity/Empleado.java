@@ -1,12 +1,16 @@
 package com.tdgames.entity;
 
 import java.sql.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -15,7 +19,8 @@ public class Empleado {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	@Column(name = "id_empleado")
+	private Integer id_empleado;
 	
 	@Column(name = "nombre")
 	private String nombre;
@@ -25,13 +30,17 @@ public class Empleado {
 	
 	@Column(name = "nacimiento")
 	private Date nacimiento;
+	
+	@OneToMany(targetEntity = Tareas.class, cascade = CascadeType.ALL)
+	@JoinColumn(name = "et_fk", referencedColumnName = "id_empleado")
+	private List<Tareas> tareas;
 
-	public Integer getId() {
-		return id;
+	public Integer getId_empleado() {
+		return id_empleado;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setId_empleado(Integer id_empleado) {
+		this.id_empleado = id_empleado;
 	}
 
 	public String getNombre() {
@@ -58,16 +67,25 @@ public class Empleado {
 		this.nacimiento = nacimiento;
 	}
 
-	public Empleado(Integer id, String nombre, String apellidos, Date nacimiento) {
+	public List<Tareas> getTareas() {
+		return tareas;
+	}
+
+	public void setTareas(List<Tareas> tareas) {
+		this.tareas = tareas;
+	}
+
+	public Empleado(Integer id_empleado, String nombre, String apellidos, Date nacimiento, List<Tareas> tareas) {
 		super();
-		this.id = id;
+		this.id_empleado = id_empleado;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.nacimiento = nacimiento;
+		this.tareas = tareas;
 	}
 
 	public Empleado() {
 		super();
 	}
-	
+
 }
