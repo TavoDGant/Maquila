@@ -58,4 +58,8 @@ public class EmpleadoService {
 	public Optional<Empleado> buscarEmpleadoID(Integer id){
 		return dao.findById(id);
 	}
+	
+	public List<Empleado> buscarSiContiene(String nombre){
+		return dao.findByNombreContaining(nombre);
+	}
 }

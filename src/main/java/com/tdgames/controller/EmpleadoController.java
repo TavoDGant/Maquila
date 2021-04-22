@@ -44,8 +44,13 @@ public class EmpleadoController {
 		return service.eliminarEmpleado(id);
 	}
 	
-	@GetMapping("empleado/{id}")
+	@GetMapping("empleado/buscarId/{id}")
 	public Optional<Empleado> findPorID(@PathVariable Integer id){
 		return service.buscarEmpleadoID(id);
+	}
+	
+	@GetMapping("empleado/buscarNombre/{nombre}")
+	public List<Empleado> findPorNombre(@PathVariable String nombre){
+		return service.buscarSiContiene(nombre);
 	}
 }
