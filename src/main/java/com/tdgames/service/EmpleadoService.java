@@ -37,4 +37,13 @@ public class EmpleadoService {
 			return new ResponseEntity<>("Error al actualizar empleado.\n" + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+	
+	public ResponseEntity<String> eliminarEmpleado(Integer id){
+		try {
+			dao.deleteById(id);
+			return new ResponseEntity<>("Empleado con el id: "+ id +". Ha sido eliminado correctamente." , HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>("Error al eliminar empleado.\n" + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
 }
