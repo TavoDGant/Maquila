@@ -17,10 +17,11 @@ document.getElementById("search-products").onkeypress = function (event) {
 
 function traerDatos() {
     cleanBody();
-    fetch('https://spring-boot-mongo-db.herokuapp.com/allProducts')
+    fetch('localhost:8080/empleado')
         .then(response => response.json())
-        .then(products => {
-            getProducts(products);
+        .then(empleados => {
+            console.log(empleados);
+            //getProducts(products);
         })
 }
 
@@ -39,10 +40,10 @@ function searchProducts() {
 }
 
 function getProducts(data) {
-    data.forEach(products => {
+    data.forEach(empleado => {
         const row = document.createElement('tr');
-        var prodId = products.id;
-        var prodName = products.name;
+        var prodId = empleado.id;
+        var prodName = empleado.nombre;
         var prodDesc = products.description;
         var prodPrice = products.price;
         row.innerHTML += `
