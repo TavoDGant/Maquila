@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.tdgames.dao.EmpleadoDAO;
 import com.tdgames.entity.Empleado;
+import com.tdgames.entity.Tareas;
 
 @Service
 public class EmpleadoService {
@@ -22,6 +23,12 @@ public class EmpleadoService {
 	}
 	
 	public ResponseEntity<String> agregarEmpleado(Empleado empleado){
+		List<Tareas> tarea = empleado.getTareas();
+		for (Tareas tar : tarea) {
+			int t = tar.getCortes();
+			double sueldo = t * 0.25;
+			tar.setSueldo(sueldo);
+		}
 		try {
 			dao.save(empleado);
 			return new ResponseEntity<>("Empleado '"+ empleado.getNombre()+"' ingresado correctamente." , HttpStatus.OK);
