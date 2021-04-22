@@ -24,7 +24,7 @@ public class EmpleadoController {
 	@Autowired
 	private EmpleadoService service;
 	
-	@GetMapping("empleado/lista")
+	@GetMapping("empleado")
 	public List<Empleado> listarEmpleados(){
 		return service.listaEmpleados();
 	}
