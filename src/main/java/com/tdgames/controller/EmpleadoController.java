@@ -22,7 +22,7 @@ import com.tdgames.service.EmpleadoService;
 public class EmpleadoController {
 
 	@Autowired
-	EmpleadoService service;
+	private EmpleadoService service;
 	
 	@GetMapping("empleado/lista")
 	public List<Empleado> listarEmpleados(){
