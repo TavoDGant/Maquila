@@ -16,18 +16,15 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "empleado")
 public class Empleado {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_empleado")
 	private Integer id_empleado;
 	
-	@Column(name = "nombre")
+	@Column(name = "nombre_completo")
 	private String nombre;
-	
-	@Column(name = "apellidos")
-	private String apellidos;
-	
+		
 	@Column(name = "nacimiento")
 	private Calendar nacimiento;
 	
@@ -51,14 +48,6 @@ public class Empleado {
 		this.nombre = nombre;
 	}
 
-	public String getApellidos() {
-		return apellidos;
-	}
-
-	public void setApellidos(String apellidos) {
-		this.apellidos = apellidos;
-	}
-
 	public Calendar getNacimiento() {
 		return nacimiento;
 	}
@@ -75,11 +64,10 @@ public class Empleado {
 		this.tareas = tareas;
 	}
 
-	public Empleado(Integer id_empleado, String nombre, String apellidos, Calendar nacimiento, List<Tareas> tareas) {
+	public Empleado(Integer id_empleado, String nombre, Calendar nacimiento, List<Tareas> tareas) {
 		super();
 		this.id_empleado = id_empleado;
 		this.nombre = nombre;
-		this.apellidos = apellidos;
 		this.nacimiento = nacimiento;
 		this.tareas = tareas;
 	}
