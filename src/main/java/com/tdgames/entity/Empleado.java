@@ -1,6 +1,6 @@
 package com.tdgames.entity;
 
-import java.sql.Date;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -29,7 +29,7 @@ public class Empleado {
 	private String apellidos;
 	
 	@Column(name = "nacimiento")
-	private Date nacimiento;
+	private Calendar nacimiento;
 	
 	@OneToMany(targetEntity = Tareas.class, cascade = CascadeType.ALL)
 	@JoinColumn(name = "et_fk", referencedColumnName = "id_empleado")
@@ -59,11 +59,11 @@ public class Empleado {
 		this.apellidos = apellidos;
 	}
 
-	public Date getNacimiento() {
+	public Calendar getNacimiento() {
 		return nacimiento;
 	}
 
-	public void setNacimiento(Date nacimiento) {
+	public void setNacimiento(Calendar nacimiento) {
 		this.nacimiento = nacimiento;
 	}
 
@@ -75,7 +75,7 @@ public class Empleado {
 		this.tareas = tareas;
 	}
 
-	public Empleado(Integer id_empleado, String nombre, String apellidos, Date nacimiento, List<Tareas> tareas) {
+	public Empleado(Integer id_empleado, String nombre, String apellidos, Calendar nacimiento, List<Tareas> tareas) {
 		super();
 		this.id_empleado = id_empleado;
 		this.nombre = nombre;

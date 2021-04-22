@@ -1,6 +1,6 @@
 package com.tdgames.entity;
 
-import java.sql.Date;
+import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,7 +22,7 @@ public class Tareas {
 	private Integer cortes;
 	
 	@Column(name = "fechaCorte", table = "tareas")
-	private Date fechaCorte;
+	private Calendar fechaCorte;
 	
 	@Column(name = "sueldo" , table = "tareas")
 	private Double sueldo;
@@ -43,11 +43,11 @@ public class Tareas {
 		this.cortes = cortes;
 	}
 
-	public Date getFechaCorte() {
+	public Calendar getFechaCorte() {
 		return fechaCorte;
 	}
 
-	public void setFechaCorte(Date fechaCorte) {
+	public void setFechaCorte(Calendar fechaCorte) {
 		this.fechaCorte = fechaCorte;
 	}
 
@@ -59,7 +59,7 @@ public class Tareas {
 		this.sueldo = sueldo;
 	}
 
-	public Tareas(Integer id_tarea, Integer cortes, Date fechaCorte, Double sueldo) {
+	public Tareas(Integer id_tarea, Integer cortes, Calendar fechaCorte, Double sueldo) {
 		this.id_tarea = id_tarea;
 		this.cortes = cortes;
 		this.fechaCorte = fechaCorte;
