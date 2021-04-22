@@ -26,11 +26,12 @@ function getEmpleados(empleados) {
         var id = empleado.id_empleado;
         var nombre = empleado.nombre;
         var fecha = empleado.nacimiento;
+        var recorte = fecha.slice(0,10);
         row.innerHTML += `
             <td>${id}</td>
             <td>${nombre}</td>
-            <td>${fecha}</td>
-            <td><h6>algo</h2></td>
+            <td>${recorte}</td>
+            <td><a href="">Detalles</a></td>
         `;
         tabla.appendChild(row);
     });
