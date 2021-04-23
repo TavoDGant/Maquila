@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tdgames.entity.Empleado;
@@ -19,37 +20,38 @@ import com.tdgames.service.EmpleadoService;
 
 @CrossOrigin
 @RestController
+@RequestMapping("/empleados/")
 public class EmpleadoController {
 
 	@Autowired
 	private EmpleadoService service;
 	
-	@GetMapping("empleado")
+	@GetMapping("/lista")
 	public List<Empleado> listarEmpleados(){
 		return service.listaEmpleados();
 	}
 	
-	@PostMapping("empleado/agregar")
+	@PostMapping("agregar")
 	public ResponseEntity<String> addEmpleado(@RequestBody Empleado empleado){
 		return service.agregarEmpleado(empleado);
 	}
 	
-	@PutMapping("empleado/actualizar")
+	@PutMapping("actualizar")
 	public ResponseEntity<String> updateEmpleado(@RequestBody Empleado empleado){
 		return service.actualizarEmpleado(empleado);
 	}
 	
-	@DeleteMapping("empleado/eliminar/{id}")
+	@DeleteMapping("eliminar/{id}")
 	public ResponseEntity<String> deleteEmpleado(@PathVariable Integer id){
 		return service.eliminarEmpleado(id);
 	}
 	
-	@GetMapping("empleado/buscarId/{id}")
+	@GetMapping("buscarId/{id}")
 	public Optional<Empleado> findPorID(@PathVariable Integer id){
 		return service.buscarEmpleadoID(id);
 	}
 	
-	@GetMapping("empleado/buscarNombre/{nombre}")
+	@GetMapping("buscarNombre/{nombre}")
 	public List<Empleado> findPorNombre(@PathVariable String nombre){
 		return service.buscarSiContiene(nombre);
 	}
