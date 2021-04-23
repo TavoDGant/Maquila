@@ -14,13 +14,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.inMemoryAuthentication().withUser("tavo").password("1234").roles("ADMIN");
+		auth.inMemoryAuthentication().withUser("tavo").password("1234").roles("JEFE");
 	}
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		//http.csrf().disable();
-		http.authorizeRequests().anyRequest().fullyAuthenticated().and().formLogin();
+		http.csrf().disable();
+		//http.authorizeRequests().anyRequest().fullyAuthenticated().and().formLogin();
+		http.authorizeRequests().antMatchers("/empleados/**").hasRole("JEFE").and().formLogin();
 	}
 	
 	@Bean

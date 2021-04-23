@@ -20,13 +20,13 @@ import com.tdgames.service.EmpleadoService;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/empleados/")
+@RequestMapping("/empleados")
 public class EmpleadoController {
 
 	@Autowired
 	private EmpleadoService service;
 	
-	@GetMapping("/lista")
+	@GetMapping("")
 	public List<Empleado> listarEmpleados(){
 		return service.listaEmpleados();
 	}
