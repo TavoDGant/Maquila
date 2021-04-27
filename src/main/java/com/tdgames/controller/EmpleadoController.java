@@ -20,7 +20,7 @@ import com.tdgames.service.EmpleadoService;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/empleados")
+@RequestMapping("empleado")
 public class EmpleadoController {
 
 	@Autowired
