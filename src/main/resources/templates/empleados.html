@@ -7,6 +7,29 @@
 <body>
 
 <h1>Empleados</h1>
-
+<table id="example" class="table table-bordered" style="width: 100%">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>nacimiento</th>
+        <th></th>
+        <th>Cortes</th>
+        <th>Fecha Corte</th>
+        <th>Sueldo</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="emp : ${empleados}">
+        <td th:text="${emp.id_empleado}"></td>
+        <td th:text="${emp.nombre}"></td>
+        <td th:text="${emp.nacimiento}"></td>
+        <td>
+            <p th:each="tar : ${emp.tareas}"></p>
+            <span th:text="${tar.cortes}"></span>
+        </td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

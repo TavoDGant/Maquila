@@ -19,15 +19,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.tdgames.entity.Empleado;
 import com.tdgames.service.EmpleadoService;
 
-@CrossOrigin
-@RestController
-@RequestMapping("admin")
+//@CrossOrigin
+//@Controller
 public class EmpleadoController {
-
+/*
 	@Autowired
 	private EmpleadoService service;
 	
-	@GetMapping("")
+	@GetMapping("empleados")
 	public List<Empleado> listarEmpleados(){
 		return service.listaEmpleados();
 	}
@@ -55,5 +54,5 @@ public class EmpleadoController {
 	@GetMapping("buscarNombre/{nombre}")
 	public List<Empleado> findPorNombre(@PathVariable String nombre){
 		return service.buscarSiContiene(nombre);
-	}
+	}*/
 }
